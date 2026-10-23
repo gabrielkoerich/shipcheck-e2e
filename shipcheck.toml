@@ -2,4 +2,9 @@ runner = "host"
 
 [host]
 versions = []
-checks = { test = "test -f README.md" }
+
+[host.checks]
+lint = "test -f README.md && ! grep -n '	' README.md"
+test = "grep -q shipcheck README.md"
+build = "mkdir -p out && cp README.md out/README.md && test -s out/README.md"
+docs = "head -1 README.md | grep -q '^# '"
