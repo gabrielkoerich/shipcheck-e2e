@@ -1,0 +1,5 @@
+runner = "host"
+
+[host]
+versions = []
+checks = { test = "test -f README.md" }
